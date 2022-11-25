@@ -1,0 +1,75 @@
+.canvas {
+    border: solid 1px black;
+    width: 280px;
+    height: 280px;
+}
+
+button {
+    display: inline-block;
+}
+
+/* clear-button */
+.clear-button {
+    position: relative;
+    top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 130px;
+    padding: 10px 25px;
+    color: #e0ebf5;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: rgb(244, 168, 46);
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+.clear-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+.clear-button:active{
+    border:1px solid #334c66;
+    background-color: rgb(225, 60, 23);
+    color:#e0ebf5;
+}
+
+/* send-button */
+.send-button {
+    position: relative;
+    top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 130px;
+    padding: 10px 25px;
+    color: #e0ebf5;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: rgb(97, 139, 224);
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+.send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+.send-button:active{
+    border:1px solid #334c66;
+    background-color: rgb(49, 17, 209);
+    color:#e0ebf5;
+}
+
+.result {
+    position: relative;
+    top: 20px;
+    font-size: 20px;
+}
+.answer {
+    color: red;
+    font-size: 25px;
+}

@@ -1,33 +1,32 @@
-from flask import Flask, render_template, request
-from keras.models import load_model
-from PIL import Image, ImageOps 
-from keras.preprocessing.image import img_to_array 
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+import cv2
+import re
+import base64
+import numpy as np
+from cnn import predict
 
 app = Flask(__name__)
+CORS(app)
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route('/', methods=['GET','POST'])
+def index():    
+    if request.method == 'POST':
+        ans = get_answer(request)
+        return jsonify({'ans': ans})
+    else:
+        return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.files['input_file'].stream
-    im = Image.open(data)
-
-    model = load_model('mnist_model_weight.h5') 
-
-    img = im.resize((28,28))
-    img = img.convert(mode='L')
-    img = ImageOps.invert(img) 
-    img = img_to_array(img)
-    img = img.reshape(1, 28, 28, 1)
-    img = img.astype('float32')/255
-
-    result = model.predict_classes(img)
-    result = result[0]
-
-    return render_template('result.html',result_output=result)
-
+def get_answer(req):
+    img_base64 = re.search(r'base64,(.*)',req.form['img']).group(1)
+    img_array = np.frombuffer(base64.b64decode(img_base64),np.uint8)
+    img_src = cv2.imdecode(img_array,cv2.IMREAD_UNCHANGED)
+    img_negaposi = 255-img_src
+    img_gray = cv2.cvtColor(img_negaposi,cv2.COLOR_BGR2GRAY)
+    img_resize = cv2.resize(img_gray,(28,28))
+    ans = predict.predict(img_resize)
+    return ans
+    
 if __name__ == '__main__':
     app.run(debug=True)

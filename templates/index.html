@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
+ 
+{% block head %}
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="/static/js/app.js"></script>
+<link rel="stylesheet" href="/static/css/app.css">
+{% endblock %}
 
-{% block body %} 
 
-<form method="POST" action="/predict" enctype="multipart/form-data">
-   <div style="text-align:center">
-       <input type="file"  name="input_file" aria-label="ファイルの選択">
-       <input type="submit" value="予測する">
-   </div>
-</form>
+{% block body %}
+<body onload="draw_init();">
+<div align="center">
+  <h1>(0~9)の数字を書いてください</h1>
+  <div class="canvas" id="candiv">
+      <canvas id="can" width="280px" height="280px"></canvas>
+  </div>
+  <form action="/get_answer" method="POST">
+      <button type="button" onClick="clearCan();" value="クリア" class="clear-button">クリア</button>
+      <button type="button" id="img" name="img" onClick="sendImage();" value="認識" class="send-button">認識</button>
+  </form>
+  <div class="result">
+    <div id="answer"></div>
+  </div>
+</div>
 
 {% endblock %}
