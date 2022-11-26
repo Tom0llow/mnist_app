@@ -33,5 +33,6 @@ FlaskとKerasにより作成
 
 ## 画面サンプル
 #### トップ画面
-
+![sample1](https://github.com/Tom0llow/mnist_app/tree/main/figures/sample1.png)
 #### 予測結果表示
+![sample1](https://github.com/Tom0llow/mnist_app/tree/main/figures/sample1.png)
