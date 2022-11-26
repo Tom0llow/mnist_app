@@ -1,6 +1,6 @@
 # 【MNIST】手書き数字認識アプリ
 手書きの数字（0～9）を認識するWebアプリのサンプルコード  
-FlaskとKerasにより作成
+FlaskとKerasにより作成  
 
 ## 概要
 * 自分の手書き数字をAI認識させることが可能
@@ -27,8 +27,11 @@ FlaskとKerasにより作成
 `conda activate myapp`
 3. 必要なパッケージのインストール  
 `pip install -r requirements.txt`  
-4. 実行
+4. サーバーを立ち上げ http://localhost:5000 にアクセス
 `python app.py`
 
 
 ## 画面サンプル
+#### トップ画面
+
+#### 予測結果表示
