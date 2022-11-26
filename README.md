@@ -33,5 +33,12 @@ FlaskとKerasにより作成
 
 ## 画面サンプル
 #### トップ画面
-![sample1](https://user-images.githubusercontent.com/117855143/204100864-0f080824-7394-46c2-a305-0295e88eafb4.png)
+* Canvasに0～9の数字を書いて認識ボタンを押下  
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/117855143/204100864-0f080824-7394-46c2-a305-0295e88eafb4.png" />
+</p>
+
 #### 予測結果表示
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/117855143/204100901-b535867d-5fa0-4b81-883a-d88aa49108c3.png" />
+</p>
